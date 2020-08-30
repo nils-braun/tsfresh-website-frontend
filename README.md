@@ -14,9 +14,7 @@ And for starting the server
 
 ## Deployment
 
-Currently, we deploy to GCP as a Cloud Run. However, in the future we might want to move
-to something without computation.
+Deployment goes via github actions to gh-pages. You can also do it manually:
 
-	gcloud builds submit --tag gcr.io/tsfresh-website/frontend
-	gcloud run deploy --image gcr.io/tsfresh-website/frontend --platform managed 
-
+	npm run export
+	npm run deploy

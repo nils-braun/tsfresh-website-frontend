@@ -23,13 +23,13 @@ export default function Content() {
               </p>
             </div>
             <div data-aos="fade-up" className="w-full sm:w-1/2 p-6">
-              <img className="w-full" src="/images/feature_extraction.svg"/>
+              <img className="w-full" src={process.env.ASSET_PREFIX + "/images/feature_extraction.svg"}/>
             </div>
           </div>
 
           <div className="flex flex-wrap flex-col-reverse sm:flex-row items-center">
             <div data-aos="fade-down" className="w-full sm:w-1/2 p-6">
-              <img className="w-full" src="/images/feature_selection.svg"/>
+              <img className="w-full" src={process.env.ASSET_PREFIX + "/images/feature_selection.svg"}/>
             </div>
             <div className="w-full sm:w-1/2 p-6 mt-6">
               <div className="align-middle">

@@ -1,16 +1,18 @@
+const webpack = require('webpack')
+
+const isProd = (process.env.NODE_ENV || 'production') === 'production'
+
+const assetPrefix = isProd ? '/tsfresh-website-frontend' : ''
+
 module.exports = {
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.(png|jp(e*)g|svg|gif)$/,
-      use: [
-        {
-          loader: "file-loader",
-          options: {
-            name: "images/[hash]-[name].[ext]",
-          },
-        },
-      ],
-    });
-    return config;
+  assetPrefix: assetPrefix,
+  webpack: config => {
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.ASSET_PREFIX': JSON.stringify(assetPrefix),
+      }),
+    )
+
+    return config
   },
-};
+}
