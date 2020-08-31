@@ -1,69 +1,47 @@
 import React from "react";
 
 import { NotificationManager } from "react-notifications";
+import { serveFile } from "./utils";
+import {
+  InputFileSpecification,
+  ColumnSpecification,
+  BackButton,
+  SubmitButton,
+} from "./subcomponents";
 
-function WithLabel({ children }) {
-  return (
-    <>
-      <span className="text-blue-600">"</span>
-      <label className="w-5 py-2 bg-black text-blue-600 rounded-lg shadow-lg">
-        {children}
-      </label>
-      <span className="text-blue-600">"</span>
-    </>
-  );
+interface InteractiveTerminalProps {
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-function Spinner() {
-  return (
-    <svg
-      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-    >
-      <circle
-        className="opacity-25"
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        strokeWidth="4"
-      ></circle>
-      <path
-        className="opacity-75"
-        fill="currentColor"
-        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-      ></path>
-    </svg>
-  );
+interface InteractiveTerminalState {
+  column_id: string;
+  column_value: string;
+  column_sort: string;
+  column_kind: string;
+  data_file: string;
+  loading: boolean;
 }
 
-function serveFile(blob) {
-  // "Fake" downloading a file
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "result.csv";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-}
-
-export default class InteractiveTerminal extends React.Component {
+export default class InteractiveTerminal extends React.Component<
+  InteractiveTerminalProps,
+  InteractiveTerminalState
+> {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillMount() {
+    this.setState({
       column_id: "",
       column_value: "",
       column_sort: "",
       column_kind: "",
+      data_file: "",
       loading: false,
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    });
   }
 
   handleChange(event) {
@@ -111,7 +89,7 @@ export default class InteractiveTerminal extends React.Component {
 
     this.setState({ loading: true });
     fetch(
-      "https://backend-kus76h2pea-uc.a.run.app/extraction?" + params.toString(),
+      process.env.FRESH_API_URL + "?" + params.toString(),
       {
         method: "POST",
         body: formData,
@@ -148,38 +126,30 @@ export default class InteractiveTerminal extends React.Component {
       <form
         autoComplete="off"
         onSubmit={this.handleSubmit}
-        className="bg-black w-full h-full"
+        className="bg-black w-full h-full overflow-x-auto"
       >
-        <p className="text-white font-mono overflow-x-auto text-base p-10">
+        <p className="text-white font-mono text-base p-10">
           <span className="whitespace-no-wrap">
             <span className="text-green-500 font-bold">from</span>{" "}
             <span className="text-blue-500 font-bold">tsfresh</span>{" "}
             <span className="text-green-500 font-bold">import</span>{" "}
-            extract_features
+            <span>extract_features</span>
           </span>
           <br />
           <span className="whitespace-no-wrap">
             <span className="text-green-500 font-bold">import</span>{" "}
             <span className="text-blue-500 font-bold">pandas</span>{" "}
-            <span className="text-green-500 font-bold">as</span> pd
-          </span>{" "}
+            <span className="text-green-500 font-bold">as</span> <span>pd</span>
+          </span>
           <br />
           <br />
           <span className="whitespace-no-wrap">
-            df = pd.read_csv(
-            <WithLabel>
-              <span className="cursor-pointer">
-                {this.state.data_file ? this.state.data_file : "Select a file"}
-              </span>
-              <input
-                type="file"
-                accept=".csv"
-                name="data_file"
-                className="hidden"
-                onChange={this.handleChange}
-              />
-            </WithLabel>
-            )
+            <span>df = pd.read_csv(</span>
+            <InputFileSpecification
+              data_file={this.state.data_file}
+              onChange={this.handleChange}
+            />
+            <span>)</span>
           </span>
           <br />
           <br />
@@ -196,69 +166,41 @@ export default class InteractiveTerminal extends React.Component {
           </span>
           <br />
           <span className="whitespace-no-wrap">
-            features = extract_features(df, column_id=
-            <WithLabel>
-              <input
-                name="column_id"
-                type="text"
-                onChange={this.handleChange}
-                value={this.state.column_id}
-                className="w-5 bg-black cursor-pointer focus:outline-none"
-              />
-            </WithLabel>
-            , column_sort=
-            <WithLabel>
-              <input
-                name="column_sort"
-                type="text"
-                onChange={this.handleChange}
-                value={this.state.column_sort}
-                className="w-5 bg-black cursor-pointer focus:outline-none"
-              />
-            </WithLabel>
-            ,
+            <span>features = extract_features(df,</span>
+            <ColumnSpecification
+              identifier="column_id"
+              onChange={this.handleChange}
+              value={this.state.column_id}
+            />
+            <span>,</span>
+            <ColumnSpecification
+              identifier="column_sort"
+              onChange={this.handleChange}
+              value={this.state.column_sort}
+            />
+            <span>,</span>
           </span>
           <br />
           <span className="whitespace-no-wrap">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp; column_value=
-            <WithLabel>
-              <input
-                name="column_value"
-                type="text"
-                value={this.state.column_value}
-                onChange={this.handleChange}
-                className="w-5 bg-black cursor-pointer focus:outline-none"
-              />
-            </WithLabel>
-            , column_kind=
-            <WithLabel>
-              <input
-                name="column_kind"
-                type="text"
-                onChange={this.handleChange}
-                value={this.state.column_kind}
-                className="w-5 bg-black cursor-pointer focus:outline-none"
-              />
-            </WithLabel>
-            )
+            &nbsp;&nbsp;&nbsp;
+            <ColumnSpecification
+              identifier="column_value"
+              onChange={this.handleChange}
+              value={this.state.column_value}
+            />
+            <span>,</span>
+            <ColumnSpecification
+              identifier="column_kind"
+              onChange={this.handleChange}
+              value={this.state.column_kind}
+            />
+            <span>)</span>
           </span>
         </p>
-        <button
-          type="button"
-          onClick={this.props.onClick}
-          className="mr-10 mb-10 float-right bg-tsfresh-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Back to example
-        </button>
-        <button
-          type="submit"
-          // className=" transition ease-in-out duration-150"
-          className="inline-flex items-center mr-10 mb-10 float-right bg-tsfresh-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-        >
-          { this.state.loading ? <Spinner/> : null } Submit
-        </button>
+        <BackButton onClick={this.props.onClick} />
+        <SubmitButton loading={this.state.loading} />
       </form>
     );
   }

@@ -2,18 +2,14 @@ import React from "react";
 import InteractiveTerminal from "./interactive";
 import NonInteractiveTerminal from "./noninteractive";
 
-export default class Hero extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      interactive: true,
-    };
-  }
 
-  submitForm(evt) {
-    console.log("ok");
-    evt.preventDefault();
-    return false;
+interface HeroState {
+  interactive: boolean
+}
+
+export default class Hero extends React.Component<{}, HeroState> {
+  componentWillMount() {
+    this.setState({interactive: false});
   }
 
   toggleInteractive() {
@@ -40,7 +36,6 @@ export default class Hero extends React.Component {
             {this.state.interactive ? (
               <InteractiveTerminal
                 onClick={this.toggleInteractive.bind(this)}
-                onSubmit={this.submitForm.bind(this)}
               />
             ) : (
               <NonInteractiveTerminal
