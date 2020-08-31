@@ -45,7 +45,7 @@ export default function Hero() {
               </span>
               <br />
             </p>
-            {/* <button className="mr-10 mb-10 float-right bg-tsfresh-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            {/* <button className="mr-10 mb-10 float-right bg-tsfresh-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
               Test with your own data
             </button> */}
           </div>
