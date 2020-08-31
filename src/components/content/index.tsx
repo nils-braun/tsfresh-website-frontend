@@ -6,7 +6,7 @@ const Content: FC<ContentProps> = () => (
   <section className="bg-gray-100 border-b py-8">
     <div className="container max-w-5xl mx-auto m-8">
       <h2 className="w-full my-2 text-5xl font-black leading-tight text-center text-gray-800">
-        Extract <span className="text-tsfresh-green">Relevant</span>{" "}
+        Extract <span className="text-tsfresh-green-500">Relevant</span>{" "}
         Features Automatically
       </h2>
       <div className="w-full mb-4">

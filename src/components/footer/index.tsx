@@ -11,7 +11,7 @@ const Footer: FC<FooterProps> = () => (
             <span className="text-black font-bold text-2xl lg:text-4xl">
               ts
             </span>
-            <span className="text-tsfresh-green font-bold text-2xl lg:text-4xl">
+            <span className="text-tsfresh-green-500 font-bold text-2xl lg:text-4xl">
               fresh
             </span>
           </a>
@@ -24,7 +24,7 @@ const Footer: FC<FooterProps> = () => (
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
                 href="https://github.com/blue-yonder/tsfresh/blob/main/README.md"
-                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green"
+                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green-500"
               >
                 Readme
               </a>
@@ -32,7 +32,7 @@ const Footer: FC<FooterProps> = () => (
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
                 href="https://github.com/blue-yonder/tsfresh"
-                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green"
+                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green-500"
               >
                 Code
               </a>
@@ -40,7 +40,7 @@ const Footer: FC<FooterProps> = () => (
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
                 href="https://github.com/blue-yonder/tsfresh/pulls"
-                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green"
+                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green-500"
               >
                 Contribute
               </a>
@@ -55,7 +55,7 @@ const Footer: FC<FooterProps> = () => (
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
                 href="https://tsfresh.readthedocs.io/en/stable/"
-                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green"
+                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green-500"
               >
                 Stable
               </a>
@@ -63,7 +63,7 @@ const Footer: FC<FooterProps> = () => (
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
                 href="https://tsfresh.readthedocs.io/en/latest/"
-                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green"
+                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green-500"
               >
                 Latest
               </a>
@@ -78,7 +78,7 @@ const Footer: FC<FooterProps> = () => (
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
                 href="#"
-                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green"
+                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green-500"
               >
                 List
               </a>
@@ -86,7 +86,7 @@ const Footer: FC<FooterProps> = () => (
             <li className="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
                 href="#"
-                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green"
+                className="font-light no-underline hover:underline text-gray-800 hover:text-tsfresh-green-500"
               >
                 Create
               </a>
