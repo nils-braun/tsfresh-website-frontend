@@ -10,6 +10,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
     <Head>
+      <title>tsfresh - Extract Features on Time Series Easily</title>
     </Head>
     <Component {...pageProps} />
     <NotificationContainer />
