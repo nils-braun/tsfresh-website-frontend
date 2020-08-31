@@ -9,7 +9,7 @@ export default function Footer() {
                 <span className="text-black font-bold text-2xl lg:text-4xl">
                   ts
                 </span>
-                <span className="text-tsfresh-green font-bold text-2xl lg:text-4xl">
+                <span className="text-tsfresh-green-500 font-bold text-2xl lg:text-4xl">
                   fresh
                 </span>
               </a>
