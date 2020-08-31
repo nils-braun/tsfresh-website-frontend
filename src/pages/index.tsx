@@ -1,3 +1,4 @@
+import { FC, useEffect } from 'react';
 import AOS from "aos";
 
 import Header from "../components/header";
@@ -8,27 +9,28 @@ import Content from "../components/content";
 import GettingStarted from "../components/gettingstarted";
 import Action from "../components/action";
 import Footer from "../components/footer";
-import React from "react";
 
-export default class HomePage extends React.Component {
-  componentDidMount() {
+export interface HomePageProps {};
+
+const HomePage: FC<HomePageProps> = () => {
+  useEffect(() => {
     AOS.init({
       duration: 750,
     });
-  }
+  });
 
-  render() {
-    return (
-      <div className="gradient leading-relaxed tracking-wide flex flex-col">
-        <Header />
-        <Hero />
-        <UseCase />
-        <UsedIn />
-        <Content />
-        <GettingStarted />
-        <Action />
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div className="gradient leading-relaxed tracking-wide flex flex-col">
+      <Header />
+      <Hero />
+      <UseCase />
+      <UsedIn />
+      <Content />
+      <GettingStarted />
+      <Action />
+      <Footer />
+    </div>
+  );
 }
+
+export default HomePage;
