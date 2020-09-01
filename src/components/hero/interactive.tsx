@@ -89,15 +89,17 @@ export default class InteractiveTerminal extends React.Component<
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const rawData = [...formData.entries()];
+    const rawData = Array.from(formData.entries());
     let params = new URLSearchParams(
-      rawData.filter(
-        ([input_name, input_value]) =>
-          input_value != "" && input_name != "data_file"
-      )
+      rawData
+        .filter(
+          ([input_name, input_value]) =>
+            input_value != "" && input_name != "data_file"
+        )
+        .map(([input_name, input_value]) => [input_name, String(input_value)])
     );
 
-    if (formData.get("data_file").name === "") {
+    if ((formData.get("data_file") as File).name === "") {
       NotificationManager.error("You need to choose a file", "Error!");
       return;
     }
