@@ -2,6 +2,10 @@ import React from "react";
 
 import { NotificationManager } from "react-notifications";
 import { serveFile } from "./utils";
+import SubmitButton from "./subcomponents/submitbutton";
+import BackButton from "./subcomponents/backbutton";
+import ColumnSpecification from "./subcomponents/columnspecification";
+import InputFileSpecification from "./subcomponents/inputfilespecification";
 
 interface InteractiveTerminalProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -158,13 +162,13 @@ export default class InteractiveTerminal extends React.Component<
           </span>
           <br />
           <span className="whitespace-no-wrap">
-            <span>features = extract_features(df,</span>
+            <span>features = extract_features(df, </span>
             <ColumnSpecification
               identifier="column_id"
               onChange={this.handleChange}
               value={this.state.column_id}
             />
-            <span>,</span>
+            <span>, </span>
             <ColumnSpecification
               identifier="column_sort"
               onChange={this.handleChange}
@@ -174,15 +178,14 @@ export default class InteractiveTerminal extends React.Component<
           </span>
           <br />
           <span className="whitespace-no-wrap">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;
-            <ColumnSpecification
-              identifier="column_value"
-              onChange={this.handleChange}
-              value={this.state.column_value}
-            />
-            <span>,</span>
+            <span style={{ paddingLeft: "17.5em" }}>
+              <ColumnSpecification
+                identifier="column_value"
+                onChange={this.handleChange}
+                value={this.state.column_value}
+              />
+            </span>
+            <span>, </span>
             <ColumnSpecification
               identifier="column_kind"
               onChange={this.handleChange}
