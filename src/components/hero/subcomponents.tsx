@@ -103,6 +103,6 @@ export const SubmitButton: FC<SubmitButtonProps> = (props) => (
     type="submit"
     className="inline-flex items-center ml-10 mb-10 float-left bg-tsfresh-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
   >
-    {props.loading ? <Spinner /> : null} Submit
+    Submit {props.loading ? <Spinner /> : null}
   </button>
 );
