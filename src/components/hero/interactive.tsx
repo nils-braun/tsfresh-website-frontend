@@ -45,9 +45,33 @@ export default class InteractiveTerminal extends React.Component<
     const value = target.value;
     const name = target.name;
 
-    this.setState({
-      [name]: value,
-    });
+    switch (name) {
+      case "column_id":
+        this.setState({
+          column_id: value,
+        });
+        break;
+      case "column_value":
+        this.setState({
+          column_value: value,
+        });
+        break;
+      case "column_kind":
+        this.setState({
+          column_kind: value,
+        });
+        break;
+      case "column_sort":
+        this.setState({
+          column_sort: value,
+        });
+        break;
+      case "data_file":
+        this.setState({
+          data_file: value,
+        });
+        break;
+    }
 
     if (target.type == "text") {
       const canvas = document.createElement("canvas");
