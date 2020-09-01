@@ -2,12 +2,6 @@ import React from "react";
 
 import { NotificationManager } from "react-notifications";
 import { serveFile } from "./utils";
-import {
-  InputFileSpecification,
-  ColumnSpecification,
-  BackButton,
-  SubmitButton,
-} from "./subcomponents";
 
 interface InteractiveTerminalProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
