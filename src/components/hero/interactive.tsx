@@ -31,17 +31,15 @@ export default class InteractiveTerminal extends React.Component<
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
 
-  componentWillMount() {
-    this.setState({
+    this.state = {
       column_id: "",
       column_value: "",
       column_sort: "",
       column_kind: "",
       data_file: "",
       loading: false,
-    });
+    };
   }
 
   handleChange(event) {
