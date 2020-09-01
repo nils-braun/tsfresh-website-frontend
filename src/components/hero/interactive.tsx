@@ -71,7 +71,10 @@ export default class InteractiveTerminal extends React.Component<
     const formData = new FormData(event.target);
     const rawData = [...formData.entries()];
     let params = new URLSearchParams(
-      rawData.filter((x) => x[1] != "" && x[0] != "data_file")
+      rawData.filter(
+        ([input_name, input_value]) =>
+          input_value != "" && input_name != "data_file"
+      )
     );
 
     if (formData.get("data_file").name === "") {
@@ -88,13 +91,10 @@ export default class InteractiveTerminal extends React.Component<
     }
 
     this.setState({ loading: true });
-    fetch(
-      process.env.FRESH_API_URL + "?" + params.toString(),
-      {
-        method: "POST",
-        body: formData,
-      }
-    )
+    fetch(process.env.FRESH_API_URL + "?" + params.toString(), {
+      method: "POST",
+      body: formData,
+    })
       .then((response) => {
         if (!response.ok) {
           response
