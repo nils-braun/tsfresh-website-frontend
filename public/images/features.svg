@@ -12,7 +12,7 @@
    viewBox="0 0 895.53902 603.46813"
    height="60.346813mm"
    width="89.553909mm"
-   sodipodi:docname="feature_selection.svg"
+   sodipodi:docname="features.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -28,8 +28,8 @@
      id="namedview15"
      showgrid="false"
      inkscape:zoom="2.755621"
-     inkscape:cx="178.41569"
-     inkscape:cy="89.840876"
+     inkscape:cx="137.3112"
+     inkscape:cy="135.81263"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
@@ -65,9 +65,9 @@
      height="396.64078"
      width="138.32213"
      id="rect944"
-     style="opacity:0.39800032;fill:#a22223;fill-opacity:1;stroke:none;stroke-width:90.46369171;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+     style="opacity:0.39800032;fill:#51b63c;fill-opacity:1;stroke:none;stroke-width:90.46369171;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
   <rect
-     style="opacity:0.39800032;fill:#a22223;fill-opacity:1;stroke:none;stroke-width:90.40033722;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     style="opacity:0.39800032;fill:#51b63c;fill-opacity:1;stroke:none;stroke-width:90.40033722;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      id="rect946"
      width="138.12845"
      height="396.64078"
