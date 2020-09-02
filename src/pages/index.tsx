@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect } from "react";
 import AOS from "aos";
 
 import Header from "../components/header";
@@ -9,8 +9,9 @@ import Content from "../components/content";
 import GettingStarted from "../components/gettingstarted";
 import Action from "../components/action";
 import Footer from "../components/footer";
+import Github from "../components/github";
 
-export interface HomePageProps {};
+export interface HomePageProps {}
 
 const HomePage: FC<HomePageProps> = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const HomePage: FC<HomePageProps> = () => {
 
   return (
     <div className="gradient leading-relaxed tracking-wide flex flex-col">
+      <Github />
       <Header />
       <Hero />
       <UseCase />
@@ -31,6 +33,6 @@ const HomePage: FC<HomePageProps> = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default HomePage;
