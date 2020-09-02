@@ -1,14 +1,17 @@
-import { FC } from 'react';
+import { FC } from "react";
 
 interface StatisticProps {}
 
 const Statistics: FC<StatisticProps> = (props) => (
-  <p data-aos="zoom-in" className="w-full md:w-1/3 p-5 font-bold text-white text-xl">
+  <p
+    data-aos="zoom-in"
+    className="w-full md:w-1/3 p-5 font-bold text-white text-xl"
+  >
     {props.children}
   </p>
 );
 
-export interface UsedInProps {};
+export interface UsedInProps {}
 
 const UsedIn: FC<UsedInProps> = () => (
   <section className="bg-gray-700 p-5 w-full mx-auto text-center">
@@ -26,14 +29,11 @@ const UsedIn: FC<UsedInProps> = () => (
           className="hover:underline"
           href="https://github.com/blue-yonder/tsfresh"
         >
-          &gt; 4k stars on github
+          &gt; 5k stars on github
         </a>
       </Statistics>
       <Statistics>
-        <a
-          className="hover:underline"
-          href="https://pepy.tech/project/tsfresh"
-        >
+        <a className="hover:underline" href="https://pepy.tech/project/tsfresh">
           &gt; 2M downloads
         </a>
       </Statistics>
